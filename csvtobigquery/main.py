@@ -8,14 +8,15 @@ def hello_world(request):
     client = bigquery.Client()
     job_config = bigquery.LoadJobConfig(
     schema=[
-        bigquery.SchemaField("EMPLOYEE_ID", "INTEGER"),
+        bigquery.SchemaField("EMPLOYEE_ID", "STRING"),
         bigquery.SchemaField("FIRST_NAME", "STRING"),
         bigquery.SchemaField("LAST_NAME", "STRING"),
         bigquery.SchemaField("EMAIL", "STRING"),
         bigquery.SchemaField("PHONE_NUMBER", "STRING"),
         bigquery.SchemaField("HIRE_DATE", "STRING"),
         bigquery.SchemaField("JOB_ID", "STRING"),
-        bigquery.SchemaField("SALARY", "FLOAT"),
+        bigquery.SchemaField("SALARY", "STRING"),
+        bigquery.SchemaField("COMMISSION_PCT", "STRING"),        
         bigquery.SchemaField("MANAGER_ID", "STRING"),
         bigquery.SchemaField("DEPARTMENT_ID", "STRING"),
 
@@ -26,7 +27,7 @@ def hello_world(request):
     source_format=bigquery.SourceFormat.CSV,
     )
 
-    table_id = "my-website-308711.cloud_functions.employee"
+    table_id = "myprojtest-473412.Mydataset.Employee"
 
 
     uri = "gs://cloud_functions_dataset/employees.csv"
